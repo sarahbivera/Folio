@@ -201,7 +201,8 @@ ul {list-style: none;}
 }
 
 /* ---- Projects Grid + Cards ---- */
-.projects-grid{
+.projects-grid,
+.blog-grid{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--s24);
@@ -240,6 +241,18 @@ ul {list-style: none;}
      color: var(--ink-muted); 
      font-size: var(--cap); 
      flex: 1; 
+     display: -webkit-box;
+     -webkit-line-clamp: 2;
+     line-clamp: 2;
+     -webkit-box-orient: vertical;
+     overflow: hidden;
+}
+
+.card-date{
+    display: block;
+    margin: var(--s16) 0;
+    color: var(--ink-muted);
+    font-size: var(--sm);
 }
 
 .card-meta{ 
