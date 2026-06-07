@@ -2,7 +2,7 @@
 Personal portfolio built using HTML, CSS, JavaScript
 Hosted using Netlify
 
-## Lighthouse Scores
+# Lighthouse Scores
 
 [![Performance](https://img.shields.io/badge/Performance-91%25-brightgreen)](#)
 [![Accessibility](https://img.shields.io/badge/Accessibility-95%25-brightgreen)](#)
