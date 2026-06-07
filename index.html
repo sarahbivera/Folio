@@ -44,9 +44,18 @@
             <div class="container">
                 <p class="section-label">01 - Work</p>
                 <h2 class="section-title">Projects</h2>
+                <div class="projects-controls">
+                    <div class="filter-bar" role="tablist" aria-label="Filter projects">
+                        <button type="button" class="filter-btn active" data-filter="all">All</button>
+                        <button type="button" class="filter-btn" data-filter="design">Design</button>
+                        <button type="button" class="filter-btn" data-filter="web">Web</button>
+                        <button type="button" class="filter-btn" data-filter="code">Code</button>
+                    </div>
+                    <div class="project-count" id="project-count">3 Projects</div>
+                </div>
                 <div class="projects-grid">
 
-                    <article class="card reveal">
+                    <article class="card reveal project-card" data-category="design">
                         <span class="card-tag">UI/UX Design</span>
                         <h3 class="card-title">Tide</h3>
                         <p class="card-desc">A complete task manager app built in Figma. Token based design system, seven screens, clickable prototype.</p>
@@ -57,7 +66,7 @@
                         <a href="https://www.figma.com/proto/AWsRrUFJgoWY7tpglGpOg5/Tide?node-id=1-3&t=q0KK6oGzS0XjCSuD-1" target="_blank" rel="noopener" class="card-link">View Prototype</a>
                     </article>
 
-                     <article class="card reveal">
+                     <article class="card reveal project-card" data-category="web">
                         <span class="card-tag">Web Development</span>
                         <h3 class="card-title">Folio</h3>
                         <p class="card-desc">This developer portfolio website built with HTML, CSS, and JavaScript. Deployed on Netlify</p>
@@ -69,7 +78,7 @@
                         <a href="https://www.github.com/Folio" target="_blank" rel="noopener" class="card-link">View Repository</a>
                     </article>
 
-                    <article class="card reveal">
+                    <article class="card reveal project-card" data-category="code">
                         <span class="card-tag">Automation</span>
                         <h3 class="card-title">Pulse</h3>
                         <p class="card-desc">Python bot that sends daily summaries every morning, scheduled with Github Actions</p>
@@ -80,6 +89,19 @@
                         <a href="#contact" class="card-link">In Progress &#8594;</a>
                     </article>
 
+                </div>
+
+                <div class="figma-preview reveal">
+                    <div class="figma-preview-copy">
+                        <span class="section-label">Prototype Preview</span>
+                        <h3 class="section-title section-title-small">Tide (Task Manager Application)</h3>
+                        <p class="card-desc">Explore the Tide app prototype directly on this page.</p>
+                    </div>
+                    <div class="figma-iframe-wrapper">
+                        <iframe class="figma-iframe" title="Tide Figma Prototype" frameborder="0" allowfullscreen
+                            src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/AWsRrUFJgoWY7tpglGpOg5/Tide?node-id=1-3&t=q0KK6oGzS0XjCSuD-1">
+                        </iframe>
+                    </div>
                 </div>
             </div>
         </section>         

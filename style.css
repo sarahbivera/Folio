@@ -208,6 +208,93 @@ ul {list-style: none;}
     gap: var(--s24);
 }
 
+.projects-controls{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--s16);
+    margin-bottom: var(--s16);
+}
+
+.filter-bar{
+    display: flex;
+    gap: var(--s8);
+}
+
+.filter-btn{
+    background: transparent;
+    border: 1px solid var(--border);
+    padding: calc(var(--s8) + 2px) var(--s12);
+    border-radius: var(--r-pill);
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--ink-muted);
+    transition: background-color 0.18s ease, color 0.18s ease, transform 0.12s ease;
+}
+
+.filter-btn:hover{ transform: translateY(-2px); }
+
+.filter-btn.active{
+    background-color: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+.project-count{
+    color: var(--ink-muted);
+    font-weight: 600;
+}
+
+.project-card{
+    transition: opacity 280ms ease, transform 280ms ease;
+    will-change: opacity, transform;
+    opacity: 1;
+    transform: none;
+}
+
+/* intermediate state for animated hide */
+.project-card.hiding{
+    opacity: 0;
+    transform: scale(0.98);
+    pointer-events: none;
+}
+
+/* removed from layout after animation completes */
+.project-card.hidden{
+    display: none !important;
+}
+
+.figma-preview{
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--s24);
+    align-items: start;
+    margin-top: var(--s32);
+}
+
+.figma-preview-copy{
+    display: grid;
+    gap: var(--s16);
+}
+
+.section-title-small{
+    font-size: 1.4rem;
+    margin-bottom: var(--s8);
+}
+
+.figma-iframe-wrapper{
+    width: 100%;
+    overflow: hidden;
+    border-radius: var(--r-lg);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+.figma-iframe{
+    width: 100%;
+    min-height: 420px;
+}
+
 .card{
     display: flex; flex-direction: column;
     background-color: var(--card);
@@ -390,5 +477,5 @@ ul {list-style: none;}
     .hero{ min-height: auto; padding: var(--s48) 0; }
     .section{ padding: var(--s48) 0; }
     .contact-link{ width: 100%; }
-    
+    .figma-preview{ grid-template-columns: 1fr; }
 }
