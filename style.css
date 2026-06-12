@@ -264,6 +264,119 @@ ul {list-style: none;}
      font-weight: 600; 
 }
 
+/* ---- Repositories Grid + Repository Cards ---- */
+.section-desc {
+    color: var(--ink-muted);
+    font-size: var(--body);
+    margin-bottom: var(--s32);
+    max-width: 60ch;
+}
+
+.repositories-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--s24);
+}
+
+.repo-card{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    padding: var(--s24);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.repo-card:hover{
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+}
+
+.repo-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--s12);
+}
+
+.repo-name{
+    font-size: var(--h3);
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.repo-link{
+    color: var(--primary);
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.repo-link:hover{
+    opacity: 1;
+}
+
+.repo-desc{
+    color: var(--ink-muted);
+    font-size: var(--cap);
+    line-height: 1.5;
+    margin-bottom: var(--s12);
+    flex: 1;
+}
+
+.repo-meta{
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s12);
+    margin-bottom: var(--s12);
+    font-size: var(--sm);
+}
+
+.repo-language{
+    display: flex;
+    align-items: center;
+    gap: var(--s4);
+    color: var(--ink-muted);
+}
+
+.repo-stat{
+    display: flex;
+    align-items: center;
+    gap: var(--s4);
+    color: var(--ink-muted);
+}
+
+.repo-stat-icon{
+    font-size: 0.9em;
+}
+
+.repo-topics{
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s8);
+    margin-top: var(--s12);
+}
+
+.repo-topic{
+    font-size: var(--sm);
+    background-color: var(--card);
+    color: var(--primary);
+    padding: var(--s4) var(--s12);
+    border-radius: var(--r-pill);
+    border: 1px solid var(--border);
+}
+
+.loading, .error {
+    text-align: center;
+    padding: var(--s48);
+    color: var(--ink-muted);
+    grid-column: 1 / -1;
+}
+
+.error {
+    color: var(--pri-high);
+}
+
 /* ---- Skills Section ---- */
 .skills-list{
     display: flex;
