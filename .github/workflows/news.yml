@@ -27,6 +27,6 @@ jobs:
       - name: Run bot
         env:
           SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
-          EMAIL_PASSWORD: ${{ secrets.APP_PASSWORD }}
-          TO_EMAIL: ${{ secrets.RECEIVER_EMAIL }}
+          APP_PASSWORD: ${{ secrets.APP_PASSWORD }}
+          RECEIVER_EMAIL: ${{ secrets.RECEIVER_EMAIL }}
         run: python news-scraper-bot/newsscraper.py
