@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r weather-bot/requirements.txt
+          pip install -r weather-alert-bot/requirements.txt
 
       - name: Run Weather Alert Bot
         env:
@@ -32,4 +32,4 @@ jobs:
           APP_PASSWORD: ${{ secrets.APP_PASSWORD }}
           RECEIVER_EMAIL: ${{ secrets.RECEIVER_EMAIL }}
         run: |
-          python weather-bot/weather_alert.py
+          python weather-alert-bot/weather-alert.py

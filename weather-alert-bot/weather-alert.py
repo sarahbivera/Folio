@@ -8,6 +8,7 @@ from email.mime.text import MIMEText
 # ==========================
 
 API_KEY = os.getenv("API_KEY")
+print(API_KEY)
 
 CITY = "Kochi"
 COUNTRY = "IN"
@@ -57,7 +58,7 @@ alerts = []
 
 if temperature > TEMP_THRESHOLD:
     alerts.append(
-        f"🔥 High Temperature Alert\n"
+        f" High Temperature Alert\n"
         f"Temperature: {temperature:.1f}°C"
     )
 
