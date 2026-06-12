@@ -32,4 +32,4 @@ jobs:
           APP_PASSWORD: ${{ secrets.APP_PASSWORD }}
           RECEIVER_EMAIL: ${{ secrets.RECEIVER_EMAIL }}
         run: |
-          python weather-alert-bot/weather-alert.py
+          python weather-alert-bot/weather_alert.py
