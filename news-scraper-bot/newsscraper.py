@@ -13,7 +13,7 @@ TO_EMAIL = os.environ["RECEIVER_EMAIL"]
 
 feeds = {
     "BBC": "https://feeds.bbci.co.uk/news/rss.xml",
-    "Reuters": "https://feeds.reuters.com/reuters/topNews",
+    "The Hindu": "https://www.thehindu.com/news/feeder/default.rss",
     "CNN": "http://rss.cnn.com/rss/edition.rss"
 }
 
