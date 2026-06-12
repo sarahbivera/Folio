@@ -1,55 +1,79 @@
 import os
-import requests
+import feedparser
 import smtplib
 
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-API_KEY = os.environ["NEWS_API_KEY"]
 
 EMAIL = os.environ["SENDER_EMAIL"]
 PASSWORD = os.environ["APP_PASSWORD"]
 TO_EMAIL = os.environ["RECEIVER_EMAIL"]
 
-url = (
-    "https://newsapi.org/v2/top-headlines?"
-    "language=en&pageSize=9&apiKey=" + API_KEY
-)
 
-response = requests.get(url)
-data = response.json()
-
-articles = data.get("articles", [])
+feeds = {
+    "BBC": "https://feeds.bbci.co.uk/news/rss.xml",
+    "Reuters": "https://feeds.reuters.com/reuters/topNews",
+    "CNN": "http://rss.cnn.com/rss/edition.rss"
+}
 
 html = """
 <html>
-<body style="font-family:Arial;">
-<h2>📰 Daily News Headlines</h2>
-<hr>
+<head>
+<style>
+body{
+    font-family:Arial;
+    background:#f4f4f4;
+    padding:20px;
+}
+.container{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+}
+h1{
+    color:#222;
+}
+h2{
+    color:#0b5ed7;
+}
+.article{
+    margin-bottom:15px;
+}
+.time{
+    color:gray;
+    font-size:13px;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+<h1>📰 Daily News Headlines</h1>
 """
 
-for article in articles:
+for source, url in feeds.items():
 
-    title = article.get("title", "No Title")
-    source = article.get("source", {}).get("name", "Unknown")
-    published = article.get("publishedAt", "")
-    link = article.get("url", "#")
+    feed = feedparser.parse(url)
 
-    html += f"""
-    <div style="margin-bottom:20px;">
-        <h3>{title}</h3>
-        <p>
-            <b>Source:</b> {source}<br>
-            <b>Published:</b> {published}
-        </p>
-        <a href="{link}">
-            Read Article
-        </a>
-    </div>
-    <hr>
-    """
+    html += f"<h2>{source}</h2>"
+
+    for article in feed.entries[:3]:
+
+        title = article.get("title", "No Title")
+        link = article.get("link", "#")
+        published = article.get("published", "Publication time unavailable")
+
+        html += f"""
+        <div class="article">
+            <b>{title}</b><br>
+            <span class="time">{published}</span><br>
+            <a href="{link}">{link}</a>
+        </div>
+        """
 
 html += """
+</div>
 </body>
 </html>
 """
@@ -73,4 +97,4 @@ server.sendmail(
 
 server.quit()
 
-print("Email sent successfully.")
+print("Email sent successfully!")
